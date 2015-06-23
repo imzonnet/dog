@@ -54,7 +54,8 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => "admin@vnzacky.com", 'name' => "John Nguyen mail server"],
+
 
     /*
     |--------------------------------------------------------------------------

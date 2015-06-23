@@ -1,0 +1,109 @@
+ 
+h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    position: relative;
+}
+
+h2:after {
+    content: '';
+    width:50px;
+    height: 3px;
+    background: #5db100;
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+}
+
+h3 {
+    font-size: 20px;
+    color:#5db100;
+    letter-spacing: 0.03em;
+}
+
+
+
+.hero-section {
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+    margin-bottom: -40px;
+    overflow: hidden;
+}
+
+.hero-section img {
+    margin-left: 45px;
+}
+
+@media (max-width: 1100px) {
+    .hero-section img {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-section {
+        margin-bottom: -10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section img {
+        margin-left: 8px;
+    }
+}
+
+.main-content {
+    background: #fff;
+    margin: auto;
+    margin-bottom: 40px;   
+    overflow: hidden;
+}
+
+@media (max-width: 767px) { 
+    #logo-container {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+    #logo-container img{
+    }
+    header {
+        padding: 0;
+    }
+}
+
+.main-content .white-box, .main-content .green-box {
+    box-sizing: border-box;
+}
+
+.green-box {
+    background: #5db100;
+    color:#fff;
+    font-size: 20px;
+    text-align: center;
+    padding: 25px 30px 20px;
+    font-weight: 700;
+}
+
+.green-box a {
+    color:#c3fa85;
+}
+
+.main-content .white-box {
+    padding: 20px 10px;
+}
+
+.faq-block .accordion {
+    margin-top: 12px;
+}
+
+
+@media (max-width: 767px) {  
+    .main-content .green-box {
+        font-size: 14px;
+    }
+    .main-content .white-box {
+        padding: 0px 10px 10px;
+    }
+}
