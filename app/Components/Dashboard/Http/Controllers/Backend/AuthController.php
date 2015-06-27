@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Http\Controllers\Auth;
+<?php namespace App\Components\Dashboard\Http\Controllers\Backend;
 
 use App\User;
 use Validator;
@@ -30,6 +28,14 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+
+        $this->loginPath = 'backend/auth/login';
+        $this->redirectPath = 'backend/home';
+    }
+
+    public function getLogin()
+    {
+        return view('Dashboard::'.$this->link_type.'.'.$this->current_theme.'.auth.login');
     }
 
     /**

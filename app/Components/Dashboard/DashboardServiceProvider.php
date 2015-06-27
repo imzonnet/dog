@@ -1,8 +1,14 @@
 <?php namespace App\Components\Dashboard;
 
+use App\Components\Dashboard\Repositories\EloquentPermissionRepository;
+use App\Components\Dashboard\Repositories\EloquentRoleRepository;
+use App\Components\Dashboard\Repositories\EloquentUserRepository;
+use App\Components\Dashboard\Repositories\PermissionRepository;
+use App\Components\Dashboard\Repositories\RoleRepository;
+use App\Components\Dashboard\Repositories\UserRepository;
+use App\Role;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Illuminate\Routing\Router;
-
+use App\Components\TraitServiceProvider;
 
 class DashboardServiceProvider extends ServiceProvider
 {
@@ -16,39 +22,33 @@ class DashboardServiceProvider extends ServiceProvider
      */
     protected $namespace = 'App\Components\Dashboard\Http\Controllers';
 
-    /**
-     * Define your route model bindings, pattern filters, etc.
-     *
-     * @param  \Illuminate\Routing\Router $router
-     * @return void
-     */
-    public function boot(Router $router)
-    {  
-        parent::boot($router);
-        $this->loadViewsFrom(__DIR__ . '/Resources/views', 'Dashboard');
-        $this->loadTranslationsFrom(__DIR__ . '/Resources/lang', 'Dashboard');
+    protected $component = 'Dashboard';
 
-        $this->publishes([
-            __DIR__ . '/Database/Migrations/' => base_path('/database/migrations')
-        ], 'migrations');
-    }
-
-    /**
-     * Define the routes for the application.
-     *
-     * @param  \Illuminate\Routing\Router $router
-     * @return void
-     */
-    public function map(Router $router)
-    {
-        $router->group(['namespace' => $this->namespace], function ($router) {
-            require app_path('Components/Dashboard/routes.php');
-        });
-    }
+    use TraitServiceProvider;
 
     public function register()
     {
+        /**
+         * Repositories
+         */
+        $this->app->bind(UserRepository::class, EloquentUserRepository::class);
+        $this->app->bind(RoleRepository::class, EloquentRoleRepository::class);
+        $this->app->bind(PermissionRepository::class, EloquentPermissionRepository::class);
+    }
 
+    /**
+     * Register Roles & Permission for Component
+     *
+     * If you want change permission name to other name.
+     * You should remove old permission name with function permissionsDrop()
+     * private function dropPermissions() {
+     *      return ['old_name1', 'old_name2'];
+     * }
+     *
+     * return array Permission name
+     */
+    private function listPermissions() {
+        return ['user'];
     }
 
 }

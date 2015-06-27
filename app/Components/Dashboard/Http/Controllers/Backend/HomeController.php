@@ -8,9 +8,8 @@ class HomeController extends Controller {
     {
         parent::__construct();
     }
-    public function index() {  
+    public function index() {
        return view('Dashboard::'.$this->link_type.'.'.$this->current_theme.'.home');
-
     }
 
 }

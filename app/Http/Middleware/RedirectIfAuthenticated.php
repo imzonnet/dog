@@ -35,7 +35,10 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) {
-            return redirect('/home');
+            if( \Request::is('backend*') )
+                return redirect('/backend');
+            else
+                return redirect('/home');
         }
 
         return $next($request);

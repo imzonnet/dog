@@ -11,3 +11,23 @@
 |
 */
 
+Route::get('/backend/auth/login', ['as' => 'backend.auth.getLogin', 'uses' => 'Backend\AuthController@getLogin']);
+Route::post('/backend/auth/login', ['as' => 'backend.auth.postLogin', 'uses' => 'Backend\AuthController@postLogin']);
+Route::get('/backend/auth/logout', ['as' => 'backend.auth.getLogout', 'uses' => 'Backend\AuthController@getLogout']);
+
+Route::group(['prefix' => 'backend', ], function() {
+
+    Route::get('/', function(){ return redirect()->route('backend.home');});
+    Route::get('/home', ['as' => 'backend.home', 'uses' => 'Backend\HomeController@index']);
+
+});
+
+
+/*
+ * User Route
+ */
+
+Route::controllers([
+    'auth' => 'Frontend\Auth\AuthController',
+    'password' => 'Frontend\Auth\PasswordController',
+]);

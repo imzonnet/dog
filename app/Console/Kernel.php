@@ -14,6 +14,9 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\Inspire::class,
+        \App\Console\Commands\ProjectSetup::class,
+        \App\Console\Commands\ProjectSeed::class,
+        \App\Console\Commands\ProjectReset::class,
     ];
 
     /**

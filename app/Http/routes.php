@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
-]);
 
 
 Route::get('/entrust', function() {
@@ -34,13 +30,17 @@ Route::get('/entrust', function() {
     $admin->description  = 'User is allowed to manage and edit other users'; // optional
     $admin->save();
     echo 1;
-});
 
-Route::get('/create-user', function() {
     $user = new \App\User();
     $user->name = "John Nguyen";
     $user->email = "vnzacky39@gmail.com";
     $user->password = bcrypt('123456');
     $user->save();
-
+    $user->attachRole($admin);
 });
+
+Route::get('/create-user', function() {
+    dd(Auth::user());
+});
+
+Entrust::routeNeedsRole('create-user', 'owner', Redirect::to('/auth/login'));

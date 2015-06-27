@@ -3,6 +3,7 @@ namespace App\Components\Dashboard\Repositories;
 
 use App\Repositories\EloquentBaseRepository;
 use App\User;
+
 class EloquentUserRepository extends EloquentBaseRepository implements UserRepository
 {
     /**
