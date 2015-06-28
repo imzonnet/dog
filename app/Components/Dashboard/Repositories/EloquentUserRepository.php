@@ -33,4 +33,34 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         return $listUsers;
      }
 
+    /**
+     * Create new record
+     *
+     * @param array $attributes
+     * @return static
+     */
+    public function create(array $attributes = array())
+    {
+        if( !isset($attributes['activated'])) {
+            $attributes['activated'] = 0;
+        }
+        return $this->model->create($attributes);
+    }
+
+    /**
+     * Update a record
+     *
+     * @param int $id
+     * @param array $attributes
+     * @return mixed
+     * @throws \Exception
+     */
+    public function update($model, array $attributes = array())
+    {
+        if( !isset($attributes['activated'])) {
+            $attributes['activated'] = 0;
+        }
+        return $model->update($attributes);
+    }
+
 }

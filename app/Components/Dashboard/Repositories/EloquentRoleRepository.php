@@ -34,4 +34,23 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
         return true;
     }
 
+    /**
+     * Get list roles
+     * @return array
+     */
+    public function listRoles()
+    {
+        return $this->model->lists('name', 'id');
+    }
+
+    /**
+     * Get list current permission of Role
+     * @var Role $role
+     * @return array
+     */
+    public function currentPerms(Role $role)
+    {
+        $perms = $role->perms()->lists('id');
+        return $perms->toArray();
+    }
 }

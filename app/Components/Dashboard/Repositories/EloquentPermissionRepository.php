@@ -35,4 +35,19 @@ class EloquentPermissionRepository extends EloquentBaseRepository implements Per
             }
         }
     }
+
+    /**
+     * Get list Permission filter by group
+     * @return mixed
+     */
+    public function group()
+    {
+        $perms = $this->model->all(['name', 'id', 'display_name']);
+        $group = [];
+        foreach( $perms as $perm) {
+            $p = explode('.', $perm->name);
+            $group[$p[0]][$perm->id] = $perm->display_name;
+        }
+        return $group;
+    }
 }

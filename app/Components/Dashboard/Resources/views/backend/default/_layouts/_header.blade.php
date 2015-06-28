@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>{{ isset($title) ? $title : 'Dashboard' }}</title>
+    <title>{{ isset($title) ? $title : 'Dashboard' }} - {{ trans('cms.control.panel') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap Core CSS -->

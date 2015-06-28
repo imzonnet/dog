@@ -48,7 +48,7 @@ class DashboardServiceProvider extends ServiceProvider
      * return array Permission name
      */
     private function listPermissions() {
-        return ['user'];
+        return ['user', 'role'];
     }
 
 }

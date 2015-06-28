@@ -13,4 +13,10 @@ interface PermissionRepository extends BaseRepository
      */
     public function register($data = array());
 
+    /**
+     * Get list Permission filter by group
+     * @return mixed
+     */
+    public function group();
+
 }

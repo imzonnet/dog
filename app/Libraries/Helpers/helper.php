@@ -36,13 +36,13 @@ if (!function_exists('current_user')) {
  * @param int
  * @return string
  */
-if( !function_exists('sate_convert')) {
-    function sate_convert($state) {
+if( !function_exists('user_active')) {
+    function user_active($state) {
         switch($state) {
             case 1:
-                return "Publish"; break;
+                return "Activated"; break;
             default :
-                return "UnPublish"; break;
+                return "Unactivated"; break;
         }
     }
 }

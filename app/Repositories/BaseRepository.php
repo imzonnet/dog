@@ -20,11 +20,11 @@ interface BaseRepository
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param  object $model
      * @param  array $attributes
      * @return Response
      */
-    public function update($id, array $attributes = array());
+    public function update($model, array $attributes = array());
 
     /**
      * Remove the specified resource from storage.

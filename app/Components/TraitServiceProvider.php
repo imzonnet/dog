@@ -54,6 +54,7 @@ trait TraitServiceProvider {
         foreach($this->listPermissions() as $name) {
             $this->registerPermissionsCreate($name, 'index');
             $this->registerPermissionsCreate($name, 'create');
+            $this->registerPermissionsCreate($name, 'show');
             $this->registerPermissionsCreate($name, 'update');
             $this->registerPermissionsCreate($name, 'delete');
         }
@@ -103,6 +104,9 @@ trait TraitServiceProvider {
                 break;
             case 'update' :
                 $display_name =  'Edit Record';
+                break;
+            case 'show' :
+                $display_name =  'View Record';
                 break;
             case 'delete' :
                 $display_name =  'Delete Record';

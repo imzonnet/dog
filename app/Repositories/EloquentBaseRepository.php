@@ -39,9 +39,9 @@ class EloquentBaseRepository implements BaseRepository
      * @return mixed
      * @throws \Exception
      */
-    public function update($id, array $attributes = array())
+    public function update($model, array $attributes = array())
     {
-        return $this->find($id)->update($attributes);
+        return $model->update($attributes);
     }
 
     /**
