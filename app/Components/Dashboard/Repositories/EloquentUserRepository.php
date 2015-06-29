@@ -50,17 +50,17 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     /**
      * Update a record
      *
-     * @param int $id
+     * @param User $user
      * @param array $attributes
      * @return mixed
      * @throws \Exception
      */
-    public function update($model, array $attributes = array())
+    public function update($user, array $attributes = array())
     {
         if( !isset($attributes['activated'])) {
             $attributes['activated'] = 0;
         }
-        return $model->update($attributes);
+        return $user->update($attributes);
     }
 
 }

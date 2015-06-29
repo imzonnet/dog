@@ -146,7 +146,11 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        /**
+         * Load All Component
+         */
         App\Components\Dashboard\DashboardServiceProvider::class,
+        App\Components\Posts\PostsServiceProvider::class,
 
         //debug bar
         Barryvdh\Debugbar\ServiceProvider::class,

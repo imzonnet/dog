@@ -19,7 +19,7 @@ trait TraitServiceProvider {
         $this->loadTranslationsFrom(__DIR__ . '/' . $this->component . '/Resources/lang', $this->component);
 
         $this->publishes([
-            __DIR__ . '/Database/Migrations/' => base_path('/database/migrations')
+            __DIR__ . '/' . $this->component . '/Database/Migrations/' => base_path('/database/migrations')
         ], 'migrations');
 
         //register new function for Boot method

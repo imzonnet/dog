@@ -9,5 +9,7 @@ return [
     'view'              => 'View',
     'delete'            => 'Delete',
     'task'              => 'Task',
-    'desc'              => 'Description'
+    'desc'              => 'Description',
+    'category'          => 'Category',
+    'categories'        => 'Categories'
 ];

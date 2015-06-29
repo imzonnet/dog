@@ -1,6 +1,7 @@
 <?php namespace App\Console\Commands;
 
 use App\Components\Dashboard\DashboardServiceProvider;
+use App\Components\Posts\PostsServiceProvider;
 use Illuminate\Console\Command;
 
 class ProjectSetup extends Command {
@@ -40,6 +41,7 @@ class ProjectSetup extends Command {
         $this->info('_________________________');
         $this->info('Publishing Migrate');
         $this->call('vendor:publish', ['--provider' => DashboardServiceProvider::class]);
+        $this->call('vendor:publish', ['--provider' => PostsServiceProvider::class]);
 
         $this->info('_________________________');
         $this->info('Migrating Database');

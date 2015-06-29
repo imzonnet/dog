@@ -37,7 +37,7 @@
                                 <th>{{$user->id}}</th> 
                                 <td>{{$user->present()->fullname}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{user_active($user->activated)}}</td>
+                                <td>{{user_state($user->activated)}}</td>
                                 <td>{{ implode(', ', $user->present()->getRoles) }}</td>
                                 <td class="center" style="min-width: 100px;">
                                         {!! Form::open(['route' => ['backend.user.destroy', $user->id], 'method' => 'delete', 'class' => 'form-delete']) !!}

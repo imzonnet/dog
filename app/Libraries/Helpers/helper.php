@@ -1,10 +1,14 @@
 <?php
-
 /**
- * Get the information whether the current section is backend, admin or public
- * @return array
+ * Z Helper
+ * @author John Nguyen
+ * @version 1.0
  */
 if (!function_exists('current_section')) {
+    /**
+     * Get the information whether the current section is backend, admin or public
+     * @return array
+     */
     function current_section()
     {
         if (Request::is('backend*') || Request::is('admin*')) {
@@ -17,11 +21,12 @@ if (!function_exists('current_section')) {
         return array($link_type, $theme);
     }
 }
-/**
- * Current User
- * @return object
- */
+
 if (!function_exists('current_user')) {
+    /**
+     * Current User
+     * @return object
+     */
     function current_user()
     {
         if (Auth::check()) {
@@ -31,27 +36,48 @@ if (!function_exists('current_user')) {
     }
 }
 
-/**
- * Convert state
- * @param int
- * @return string
- */
-if( !function_exists('user_active')) {
-    function user_active($state) {
+if( !function_exists('user_state')) {
+    /**
+     * Convert state
+     * @param int
+     * @return string
+     */
+    function user_state($state) {
         switch($state) {
             case 1:
                 return "Activated"; break;
+            case 0:
             default :
                 return "Unactivated"; break;
         }
     }
 }
 
-/**
- * Get current template path
- * @return string
- */
+
+if( !function_exists('state_convert')) {
+    /**
+     * State convert
+     * @param int
+     * @return string
+     */
+    function state_convert($state) {
+        switch($state) {
+            case 1:
+                return "Publish"; break;
+            case 0:
+                return "UnPublish"; break;
+            case -1:
+            default :
+                return "Draft"; break;
+        }
+    }
+}
+
 if (!function_exists('get_template_directory')) {
+    /**
+     * Get current template path
+     * @return string
+     */
     function get_template_directory() {
         list($type, $theme) = current_section();
         return asset('templates/'.$type.'/'.$theme);

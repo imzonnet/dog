@@ -44,3 +44,8 @@ Route::get('/create-user', function() {
 });
 
 Entrust::routeNeedsRole('create-user', 'owner', Redirect::to('/auth/login'));
+
+Route::get('list-routes', function() {
+    $routeCollection = Route::getRoutes();
+    dd($routeCollection);
+});

@@ -68,7 +68,41 @@
                 </li>
                 @endif
                 <!-- End User -->
-
+                @if( current_user()->ability(['admin'], ['post.index', 'post.create', 'post.update', 'post.delete']) )
+                <!-- Posts Component -->
+                <li>
+                    <a href="{{route('backend.posts.index')}}"><i class="fa fa-file-text fa-fw"></i> {{ trans('Posts::post.index') }}<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{route('backend.posts.index')}}">{{ trans('Posts::post.list') }}</a>
+                        </li>
+                        <li>
+                            <a href="{{route('backend.posts.create')}}">{{ trans('Posts::post.create') }}</a>
+                        </li>
+                        <li>
+                            <a href="{{route('backend.post-categories.index')}}">{{ trans('cms.category') }}</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <!-- End Posts -->
+                @endif
+                @if( current_user()->ability(['admin'], ['page.index', 'page.create', 'page.update', 'page.delete']) )
+                <!-- Posts Component -->
+                <li>
+                    <a href="{{route('backend.pages.index')}}"><i class="fa fa-file-text fa-fw"></i> {{ trans('Posts::page.index') }}<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{route('backend.pages.index')}}">{{ trans('Posts::page.list') }}</a>
+                        </li>
+                        <li>
+                            <a href="{{route('backend.pages.create')}}">{{ trans('Posts::page.create') }}</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <!-- End Posts -->
+                @endif
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
